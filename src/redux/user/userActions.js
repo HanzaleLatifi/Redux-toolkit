@@ -21,12 +21,12 @@ function fetchUsersFailure(error) {
 export const fetchUsers = () => {
   return function (dispatch) {
     dispatch(fetchUsersRequest());
-    axios.get("https://jsonplaceholder.typicode.com/users"),
-      then((res) => {
-        usersId = res.map((user) => user.id);
-        dispatch(fetchUsersSuccess(usersId));
+    axios.get("https://jsonplaceholder.typicode.com/users")
+      .then((res) => {
+        const users = res.data;
+        dispatch(fetchUsersSuccess(users));
       }).catch((error) => {
-        dispatch(fetchUsersFailure(error));
+        dispatch(fetchUsersFailure(error.message));
       });
   };
 };
