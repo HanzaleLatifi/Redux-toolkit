@@ -7,8 +7,6 @@ function CakeWithPayload() {
     const dispatch=useDispatch()
     return (
         <div>
-            {/* <p>number of cakes {props.num_Of_Cakes}</p>
-            <button onClick={props.buyCake}>buyCake</button> */}
             <p>number of cakes {numOfCakes}</p>
             <input value={number} onChange={e=>setNumber(e.target.value)}/> 
             <button onClick={()=>dispatch(buyCake(number))}>buyCake {number}</button>
