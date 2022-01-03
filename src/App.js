@@ -12,9 +12,11 @@ function App() {
   return (
     <Provider store={store}>
       {/* <Counter /> */}
-      <AddTodoForm />
-      <TodoList />
-      <TotalCompleteItems />
+      <div className="App">
+        <AddTodoForm />
+        <TodoList />
+        <TotalCompleteItems />
+      </div>
     </Provider>
   );
 }
