@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { deleteTodo, toggleTodo } from "../../feature/todos/TodoSlice";
+import { deleteAsyncTodos, deleteTodo, toggleAsyncTodos, toggleTodo } from "../../feature/todos/TodoSlice";
 
 const TodoItem = ({ id, title, completed }) => {
   const dispatch=useDispatch();
@@ -8,10 +8,10 @@ const TodoItem = ({ id, title, completed }) => {
     <li className={`list-group-item ${completed && "list-group-item-success"}`}>
       <div className="d-flex justify-content-between">
         <span className="d-flex align-items-center">
-          <input type="checkbox" className="mr-3" checked={completed} onChange={(e)=>dispatch(toggleTodo({id}))}></input>
+          <input type="checkbox" className="mr-3" checked={completed} onChange={(e)=>dispatch(toggleAsyncTodos({id,completed:!completed , title}))}></input>
           {title}
         </span>
-        <button className="btn btn-danger" onClick={(e)=>dispatch(deleteTodo({id}))}>Delete</button>
+        <button className="btn btn-danger" onClick={(e)=>dispatch(deleteAsyncTodos({id}))}>Delete</button>
       </div>
     </li>
   );
